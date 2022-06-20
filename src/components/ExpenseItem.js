@@ -1,13 +1,17 @@
-import './ExpenseItem.css';
+import './ExpenseItem.css'; 
+import ExpenseDate from './ExpenseDate';
 
-function ExpenseItem() {
-    let date = new Date
+function ExpenseItem(props) {
+
     return (
         <div className='expense-item'>
-            <div>{date.toLocaleDateString()}</div>
+      <ExpenseDate
+      key={props.date.getTime()}
+      date={props.date}
+      />
             <div className='expense-item__description' >
                 <h2>Example Price</h2>
-                <div className='expense-item__price'>59 pln</div>
+                <div className='expense-item__price'>{props.amount}</div>
             </div>
         </div>)
 }
